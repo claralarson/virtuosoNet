@@ -341,6 +341,7 @@ def scale_model_prediction_to_original(prediction, MEANS, STDS):
 
 def load_file_and_generate_performance(path_name, composer=args.composer, z=args.latent, 
                                         start_tempo=args.startTempo, return_features=False, multi_instruments=args.multi_instruments):
+    '''
     print("**************IN load_file_and_generate_performance******************")
     vel_pair = (int(args.velocity.split(',')[0]), int(args.velocity.split(',')[1]))
     print("vel_pair", vel_pair)
@@ -356,6 +357,7 @@ def load_file_and_generate_performance(path_name, composer=args.composer, z=args
     xml_np = np.array(xml_response)
     print(xml_np.shape)
     print("xml_response", xml_response)
+    '''
     test_x, xml_notes, xml_doc, edges, note_locations = xml_matching.read_xml_to_array(path_name, MEANS, STDS, start_tempo, composer, vel_pair)
     batch_x = torch.Tensor(test_x)
     num_notes = len(test_x)
