@@ -352,6 +352,8 @@ def load_file_and_generate_performance(path_name, composer=args.composer, z=args
     print("multi_instruments", multi_instruments)
     print("MEANS", MEANS)
     print("STDS", STDS)
+    xml_response = xml_matching.read_xml_to_array(path_name, MEANS, STDS, start_tempo, composer, vel_pair)
+    print(xml_response)
     test_x, xml_notes, xml_doc, edges, note_locations, part_names = xml_matching.read_xml_to_array(path_name, MEANS, STDS,
                                                                                        start_tempo, composer,
                                                                                        vel_pair)
