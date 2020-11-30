@@ -356,9 +356,7 @@ def load_file_and_generate_performance(path_name, composer=args.composer, z=args
     xml_np = np.array(xml_response)
     print(xml_np.shape)
     print("xml_response", xml_response)
-    test_x, xml_notes, xml_doc, edges, note_locations, part_names = xml_matching.read_xml_to_array(path_name, MEANS, STDS,
-                                                                                       start_tempo, composer,
-                                                                                       vel_pair)
+    test_x, xml_notes, xml_doc, edges, note_locations = xml_matching.read_xml_to_array(path_name, MEANS, STDS, start_tempo, composer, vel_pair)
     batch_x = torch.Tensor(test_x)
     num_notes = len(test_x)
     input_y = torch.zeros(1, num_notes, NUM_OUTPUT).to(DEVICE)
@@ -417,8 +415,7 @@ def load_file_and_generate_performance(path_name, composer=args.composer, z=args
     save_name = 'test_result/' + piece_name[-2] + '_by_' + args.modelCode + '_z' + str(z)
 
     perf_worm.plot_performance_worm(output_features, save_name + '.png')
-    xml_matching.save_midi_notes_as_piano_midi(output_midi, midi_pedals, save_name + '.mid', part_names=part_names,
-                                               bool_pedal=args.boolPedal, disklavier=args.disklavier)
+    xml_matching.save_midi_notes_as_piano_midi(output_midi, midi_pedals, save_name + '.mid', bool_pedal=args.boolPedal, disklavier=args.disklavier)
 
 
 def load_file_and_encode_style(path, perf_name, composer_name):
