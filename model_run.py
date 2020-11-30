@@ -339,8 +339,8 @@ def scale_model_prediction_to_original(prediction, MEANS, STDS):
     return prediction
 
 
-def load_file_and_generate_performance(path_name, composer=args.composer, z=args.latent, start_tempo=args.startTempo, return_features=False, multi_instruments=args.multi_instruments)
-    #print("**************IN load_file_and_generate_performance******************")
+def load_file_and_generate_performance(path_name, composer=args.composer, z=args.latent, start_tempo=args.startTempo, return_features=False, 
+                                       multi_instruments=args.multi_instruments)
     vel_pair = (int(args.velocity.split(',')[0]), int(args.velocity.split(',')[1]))
     '''
     print("vel_pair", vel_pair)
