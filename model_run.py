@@ -341,6 +341,7 @@ def scale_model_prediction_to_original(prediction, MEANS, STDS):
 
 def load_file_and_generate_performance(path_name, composer=args.composer, z=args.latent, 
                                         start_tempo=args.startTempo, return_features=False, multi_instruments=args.multi_instruments):
+    print("**************IN load_file_and_generate_performance******************"
     vel_pair = (int(args.velocity.split(',')[0]), int(args.velocity.split(',')[1]))
     test_x, xml_notes, xml_doc, edges, note_locations, part_names = xml_matching.read_xml_to_array(path_name, MEANS, STDS,
                                                                                        start_tempo, composer,
