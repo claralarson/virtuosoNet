@@ -740,7 +740,7 @@ if args.sessMode == 'train':
     print('Loading the training data...')
     training_data_name = args.dataName + ".dat"
     if not os.path.isfile(training_data_name):
-        training_data_name = 'C:\Users\clara\Desktop\virtuosoNet_data\virtuosoNet_data\' + training_data_name
+        training_data_name = '/content/gdrive/My Drive/Colab Notebooks/project_folder/virtuosoNet_data/' + training_data_name
     with open(training_data_name, "rb") as f:
         u = pickle._Unpickler(f)
         u.encoding = 'latin1'
